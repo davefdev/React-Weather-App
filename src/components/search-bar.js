@@ -7,7 +7,12 @@ class SearchBar extends React.Component {
     this.state = {
       location: "",
     };
-  }
+
+console.log('my key', process.env.REACT_APP_API_KEY)
+
+}
+
+
   onInputChange(e) {
       this.setState({
           location: e.target.value
