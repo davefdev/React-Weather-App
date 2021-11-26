@@ -8,21 +8,17 @@ class SearchBar extends React.Component {
       location: "",
     };
 
-console.log('my key', process.env.REACT_APP_API_KEY)
-
-}
-
+    console.log("my key", process.env.REACT_APP_API_KEY);
+  }
 
   onInputChange(e) {
-      this.setState({
-          location: e.target.value
-      });
+    this.setState({
+      location: e.target.value,
+    });
   }
 
   onFormSubmit(e) {
     e.preventDefault();
-
-
   }
   //render function is triggered whenever updating the state using the setState function
   render() {
@@ -30,7 +26,6 @@ console.log('my key', process.env.REACT_APP_API_KEY)
 
     return (
       <form onSubmit={(e) => this.onFormSubmit(e)}>
-    
         <button type="submit">Search</button>
         <input
           id="id"
