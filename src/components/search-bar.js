@@ -1,4 +1,5 @@
 import React from "react";
+import {getCurrentWeather} from "./../apis/open-weather.api";
 
 //this is a class component
 class SearchBar extends React.Component {
@@ -8,7 +9,9 @@ class SearchBar extends React.Component {
       location: "",
     };
 
-    console.log("my key", process.env.REACT_APP_API_KEY);
+    getCurrentWeather('New York').then({res} => {
+        console.log('res ', res);
+    })
   }
 
   onInputChange(e) {
