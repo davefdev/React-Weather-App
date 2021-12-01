@@ -1,5 +1,5 @@
 import React from "react";
-import {getCurrentWeather} from "./../apis/open-weather.api";
+import { getCurrentWeather } from "./../apis/open-weather.api";
 
 //this is a class component
 class SearchBar extends React.Component {
@@ -7,11 +7,8 @@ class SearchBar extends React.Component {
     super(props);
     this.state = {
       location: "",
+      temp: ""
     };
-
-    getCurrentWeather('New York').then({res} => {
-        console.log('res ', res);
-    })
   }
 
   onInputChange(e) {
@@ -22,12 +19,17 @@ class SearchBar extends React.Component {
 
   onFormSubmit(e) {
     e.preventDefault();
+
+    getCurrentWeather(this.state.location).then((res) => {});
   }
   //render function is triggered whenever updating the state using the setState function
   render() {
     const location = this.state.location;
-
+    const temp = this.state.temp;
     return (
+      <div>
+
+     
       <form onSubmit={(e) => this.onFormSubmit(e)}>
         <button type="submit">Search</button>
         <input
@@ -37,6 +39,10 @@ class SearchBar extends React.Component {
           onChange={(e) => this.onInputChange(e)}
         ></input>
       </form>
+      <p>
+        {temp}
+      </p>
+      </div>
     );
   }
 }
