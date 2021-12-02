@@ -7,7 +7,7 @@ class SearchBar extends React.Component {
     super(props);
     this.state = {
       location: "",
-      temp: ""
+      temp: "",
     };
   }
 
@@ -20,7 +20,11 @@ class SearchBar extends React.Component {
   onFormSubmit(e) {
     e.preventDefault();
 
-    getCurrentWeather(this.state.location).then((res) => {});
+    getCurrentWeather(this.state.location).then((res) => {
+      this.setState({
+        temp: res.data.main.temp,
+      });
+    });
   }
   //render function is triggered whenever updating the state using the setState function
   render() {
@@ -28,20 +32,16 @@ class SearchBar extends React.Component {
     const temp = this.state.temp;
     return (
       <div>
-
-     
-      <form onSubmit={(e) => this.onFormSubmit(e)}>
-        <button type="submit">Search</button>
-        <input
-          id="id"
-          name="search"
-          value={location}
-          onChange={(e) => this.onInputChange(e)}
-        ></input>
-      </form>
-      <p>
-        {temp}
-      </p>
+        <form onSubmit={(e) => this.onFormSubmit(e)}>
+          <button type="submit">Search</button>
+          <input
+            id="id"
+            name="search"
+            value={location}
+            onChange={(e) => this.onInputChange(e)}
+          ></input>
+        </form>
+        <p>{temp}</p>
       </div>
     );
   }
