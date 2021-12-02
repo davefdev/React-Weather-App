@@ -5,11 +5,16 @@ class CurrentWeather extends React.Component {
     return (
       <div className="current-weather">
         <div className="current-weather__content">
-          <p className="current-weather__temp">39.99</p>
-          <p className="current-weather__description">Sunny</p>
+          <p className="current-weather__temp">{this.props.currentTemperature}</p>
+          <p className="current-weather__description">{this.props.description}</p>
+          <img className="current-weather__icon" url="" />
         </div>
-        <div></div>
+        <div>
+          <p className="current-weather__feels-like">Feels Like{this.props.feelsLike}</p>
+        </div>
       </div>
     );
   }
 }
+
+export default CurrentWeather;

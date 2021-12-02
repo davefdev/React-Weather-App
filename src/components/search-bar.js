@@ -5,31 +5,21 @@ import { getCurrentWeather } from "./../apis/open-weather.api";
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      location: "",
-      temp: "",
-    };
   }
 
   onInputChange(e) {
-    this.setState({
-      location: e.target.value,
-    });
+    this.props.inputChange(e);
+
   }
 
   onFormSubmit(e) {
     e.preventDefault();
-
-    getCurrentWeather(this.state.location).then((res) => {
-      this.setState({
-        temp: res.data.main.temp,
-      });
-    });
+    this.props.formSubmitted();
   }
   //render function is triggered whenever updating the state using the setState function
   render() {
-    const location = this.state.location;
-    const temp = this.state.temp;
+    const location = this.props.location;
+   
     return (
       <div>
         <form onSubmit={(e) => this.onFormSubmit(e)}>
@@ -41,7 +31,6 @@ class SearchBar extends React.Component {
             onChange={(e) => this.onInputChange(e)}
           ></input>
         </form>
-        <p>{temp}</p>
       </div>
     );
   }
