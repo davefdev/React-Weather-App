@@ -1,9 +1,13 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./App.scss";
+
+import logo from "./logo.svg";
 import SearchBar from "./components/search-bar";
 import CurrentWeather from "./components/current-weather";
+import Forecast from "./components/forecast-weather";
+
 import { getCurrentWeather } from "./apis/open-weather.api";
-import React from "react";
+
 
 //functional component
 //returns a template, doesnt have too much config, or methods, or functions inside a class that is used to manipulate/create logic
@@ -52,6 +56,8 @@ class App extends React.Component {
             description={this.state.description}
             icon={this.state.icon}
           />
+            <Forecast/>
+
         </header>
       </div>
     );

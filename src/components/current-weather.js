@@ -2,9 +2,7 @@ import React from "react";
 
 class CurrentWeather extends React.Component {
   render() {
-
-    const url = `http://http://openweathermap.org/img/wn/${this.props.icon}@4x.png`
-
+    const url = `http://openweathermap.org/img/wn/${this.props.icon}@4x.png`;
 
     return (
       <div className="current-weather">
@@ -15,7 +13,11 @@ class CurrentWeather extends React.Component {
           <p className="current-weather__description">
             {this.props.description}
           </p>
-          <img className="current-weather__icon" url={url} alt={this.props.description}/>
+          <img
+            className="current-weather__icon"
+            src={url}
+            alt={this.props.description}
+          />
         </div>
         <div>
           <p className="current-weather__feels-like">
