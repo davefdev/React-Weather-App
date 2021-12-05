@@ -36,7 +36,16 @@ class App extends React.Component {
 
     const lat = weatherRes.data.coord.lat;
     const lon = weatherRes.data.coord.lon;
-    const forecaseRes = await getForecast()
+    const forecaseRes = await getForecast(lat, lon);
+
+  this.setState({
+       temp: weatherRes.data.main.temp,
+       feelsLike: weatherRes.data.main.feels_like,
+        description: weatherRes.data.weather[0].main,
+        icon: weatherRes.data.weather[0].icon,
+        forecast: []
+      });
+    };
 
     //.then((res) => {
     
@@ -46,13 +55,7 @@ class App extends React.Component {
 
     {
 
-  //this.setState({
-       // temp: res.data.main.temp,
-       // feelsLike: res.data.main.feels_like,
-        //description: res.data.weather[0].main,
-        //icon: res.data.weather[0].icon,
-     // });
-  //  });
+
 
     }
   }
