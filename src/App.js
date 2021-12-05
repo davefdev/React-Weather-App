@@ -6,7 +6,8 @@ import SearchBar from "./components/search-bar";
 import CurrentWeather from "./components/current-weather";
 import Forecast from "./components/forecast-weather";
 
-import { getCurrentWeather } from "./apis/open-weather.api";
+import { getCurrentWeather,
+getForecast} from "./apis/open-weather.api";
 
 
 //functional component
@@ -30,15 +31,30 @@ class App extends React.Component {
     });
   }
 
-  onFormSubmit() {
-    getCurrentWeather(this.state.location).then((res) => {
-      this.setState({
-        temp: res.data.main.temp,
-        feelsLike: res.data.main.feels_like,
-        description: res.data.weather[0].main,
-        icon: res.data.weather[0].icon,
-      });
-    });
+  async onFormSubmit() {
+    const weatherRes = await getCurrentWeather(this.state.location);
+
+    const lat = weatherRes.data.coord.lat;
+    const lon = weatherRes.data.coord.lon;
+    const forecaseRes = await getForecast()
+
+    //.then((res) => {
+    
+//
+    
+
+
+    {
+
+  //this.setState({
+       // temp: res.data.main.temp,
+       // feelsLike: res.data.main.feels_like,
+        //description: res.data.weather[0].main,
+        //icon: res.data.weather[0].icon,
+     // });
+  //  });
+
+    }
   }
 
   render() {
