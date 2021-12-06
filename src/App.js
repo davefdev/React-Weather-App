@@ -6,9 +6,7 @@ import SearchBar from "./components/search-bar";
 import CurrentWeather from "./components/current-weather";
 import Forecast from "./components/forecast-weather";
 
-import { getCurrentWeather,
-getForecast} from "./apis/open-weather.api";
-
+import { getCurrentWeather, getForecast } from "./apis/open-weather.api";
 
 //functional component
 //returns a template, doesnt have too much config, or methods, or functions inside a class that is used to manipulate/create logic
@@ -22,6 +20,7 @@ class App extends React.Component {
       feelsLike: "",
       description: "",
       icon: "",
+      hourlyForecast: []
     };
   }
 
@@ -36,28 +35,15 @@ class App extends React.Component {
 
     const lat = weatherRes.data.coord.lat;
     const lon = weatherRes.data.coord.lon;
-    const forecaseRes = await getForecast(lat, lon);
+    const forecastRes = await getForecast(lat, lon);
 
-  this.setState({
-       temp: weatherRes.data.main.temp,
-       feelsLike: weatherRes.data.main.feels_like,
-        description: weatherRes.data.weather[0].main,
-        icon: weatherRes.data.weather[0].icon,
-        forecast: []
-      });
-    };
-
-    //.then((res) => {
-    
-//
-    
-
-
-    {
-
-
-
-    }
+    this.setState({
+      temp: weatherRes.data.main.temp,
+      feelsLike: weatherRes.data.main.feels_like,
+      description: weatherRes.data.weather[0].main,
+      icon: weatherRes.data.weather[0].icon,
+      hourlyForecast: forecastRes.data.hourly,
+    });
   }
 
   render() {
@@ -75,8 +61,7 @@ class App extends React.Component {
             description={this.state.description}
             icon={this.state.icon}
           />
-            <Forecast/>
-
+          <Forecast forecast={this.state.hourlyForecast}/>
         </header>
       </div>
     );
