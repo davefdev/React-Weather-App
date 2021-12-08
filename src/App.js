@@ -11,6 +11,7 @@ import { getCurrentWeather, getForecast } from "./apis/open-weather.api";
 //functional component
 //returns a template, doesnt have too much config, or methods, or functions inside a class that is used to manipulate/create logic
 //just returns a template )what is being rendered in the UI
+//this is a class componennt
 class App extends React.Component {
   constructor(props) {
     super(props);
