@@ -21,13 +21,14 @@ class SearchBar extends React.Component {
     const location = this.props.location;
    
     return (
-      <div>
+      <div className="search-bar">
         <form onSubmit={(e) => this.onFormSubmit(e)}>
-          <button type="submit">Search</button>
+          <button className="search-bar__button" type="submit">Search</button>
           <input
             id="id"
             name="search"
             value={location}
+            className="search-bar__input"
             onChange={(e) => this.onInputChange(e)}
           ></input>
         </form>

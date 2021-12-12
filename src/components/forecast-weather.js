@@ -13,9 +13,12 @@ class Forecast extends React.Component {
         hour = hour - 12;
         ampm = "PM";
       }
+
       return (
         <div className="forecast-item" key={key}>
-          <p className="forecast-item__hour">  {hour}:00 {ampm} {""}   </p>
+          <p className="forecast-item__hour"> 
+           {hour}:00 {ampm} {""}
+          </p>
           <p className="forecast-item__temp">{f.temp}</p>
           <img src={url} alt={f.weather[0].description}/>
           <p className="forecast-item__description">{f.weather[0].main}</p>
@@ -25,9 +28,6 @@ class Forecast extends React.Component {
 
     return  <div className="forecast">{forecastItem}</div>
     
-      
-
-     
   }
 }
 
