@@ -16,13 +16,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: "",
+      location: "Manchester",
       temp: "",
       feelsLike: "",
       description: "",
       icon: "",
-      hourlyForecast: []
+      hourlyForecast: [],
     };
+
+    this.onFormSubmit();
   }
 
   onInputChange(e) {
@@ -62,7 +64,7 @@ class App extends React.Component {
             description={this.state.description}
             icon={this.state.icon}
           />
-          <Forecast forecast={this.state.hourlyForecast}/>
+          <Forecast forecast={this.state.hourlyForecast} />
         </header>
       </div>
     );
