@@ -14,7 +14,7 @@ function getForecast(lat, lon) {
 
 
     return axios.get(
-        `onecall?lat=${lat}&lon=${lon}&${appIdQueryParam}`
+        `onecall?lat=${lat}&lon=${lon}&units=imperial&${appIdQueryParam}`
     );
 }
 

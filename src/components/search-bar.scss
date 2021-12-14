@@ -14,15 +14,15 @@
   }
 
   &__button {
-    border-left: 0px;
     border-bottom-left-radius: 7px;
     border-top-left-radius: 7px;
   }
+  
   &__input {
     border-left: 0px;
     border-bottom-right-radius: 7px;
     border-top-right-radius: 7px;
-    height: 35px;
+    height: 25px;
     flex-grow: 1;
   }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import "./forecast-weather.scss";
 
 class Forecast extends React.Component {
   render() {
@@ -19,14 +20,18 @@ class Forecast extends React.Component {
           <p className="forecast-item__hour"> 
            {hour}:00 {ampm} {""}
           </p>
-          <p className="forecast-item__temp">{f.temp}</p>
+          <p className="forecast-item__temp">{f.temp}°</p>
           <img src={url} alt={f.weather[0].description}/>
           <p className="forecast-item__description">{f.weather[0].main}</p>
         </div>
       );
     });
 
-    return  <div className="forecast">{forecastItem}</div>
+    return  <div className="forecast">
+      <div className="forecast-title">Hourly Forecast </div>
+      {forecastItem}
+    
+    </div>
     
   }
 }

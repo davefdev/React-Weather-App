@@ -23,7 +23,9 @@ class App extends React.Component {
       icon: "",
       hourlyForecast: [],
     };
+  }
 
+  componentDidMount() {
     this.onFormSubmit();
   }
 
